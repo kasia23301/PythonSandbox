@@ -17,6 +17,8 @@
 #     print(osoba1.name)
 #     print(osoba1.age)
 #     print(osoba2.stupid_level)
+
+
 class Node:
     def __init__(self, value, next__node):
         self.value = value
