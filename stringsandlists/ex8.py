@@ -21,7 +21,7 @@ def podnoszenie_do_kwadratu(liczba):
 
 def podnies_liste_do_kwadratu(lista):
     for i in range(0, len(lista)):
-        lista.podnoszenie_do_kwadratu(lista[i])
+        lista.append(lista[i])
 
 
 if __name__ == "__main__":
