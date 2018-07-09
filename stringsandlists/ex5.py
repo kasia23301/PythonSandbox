@@ -1,10 +1,15 @@
-def sumaelementow(lista):
-    element = 0
-    lista2 = []
-    while element in lista:
-        lista2.append(element)
-        element += 1
-    return sum(lista2)
+def sumaelementow(lista):  # sum(lista)
+    wynik = 0
+    for element in lista:
+        wynik += element
+    return wynik
+
+
+def sum_of_list_using_while_loop(lista):
+    wynik2 = 0
+    while element2 < len(lista):
+        wynik2 += element2
+    return wynik2
 
 
 if __name__ == "__main__":

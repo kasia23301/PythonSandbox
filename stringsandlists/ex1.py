@@ -1,8 +1,11 @@
-def max_elem(l):
-    wynik = max(l)
-    return wynik
+def funkszyn_największy_element(lista):
+    najwiekszy_element = lista[0]
+    for element in lista:
+        if element > najwiekszy_element:
+            najwiekszy_element = element
+    return najwiekszy_element
 
 
 if __name__ == "__main__":
-    lista = [1, 2, 3, 4, 5, 6, 7]
-    print(max_elem(lista))
+    lista = [2, 3, 5, 7, 4]
+    print(funkszyn_największy_element(lista))
