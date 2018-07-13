@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-    vowels = ["a", "e", "i", "o", "u"]
+    vowels = ["a", "e", "i", "o", "u", "y", "ą", "ę","ó"]
     word= input("Podaj słowo, w którym należy wyszuakć samogłoski: ")
     found = []
     for letter in word:
