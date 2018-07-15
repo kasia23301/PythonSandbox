@@ -15,3 +15,4 @@ if __name__ == "__main__":
     nums.insert(2, "dwa-i-pół")
     print(nums)
     help(list)
+    print("Hello world")
