@@ -17,3 +17,4 @@ if __name__ == "__main__":
     help(list)
     print("Hello world")
     print("mateuszjestgupi")
+    print("jfnsofnow")
