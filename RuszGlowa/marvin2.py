@@ -9,3 +9,4 @@ if __name__ == "__main__":
     print()
     for char in letters[8:19]:
         print("\t"*3, char)
+        
