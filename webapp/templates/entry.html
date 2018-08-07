@@ -4,7 +4,7 @@
 
 <h2>{{ the_title }}</h2>
 
-<from method='POST' action='/search4'>
+<form method='POST' action='/search4'>
 <table>
     <p> Użyj tego formularza, aby określić parametry wyszukiwania:</p>
     <tr><td>Fraza:</td><td><input name='phrase' type='TEXT' width='60'></td></tr>
@@ -12,7 +12,7 @@
 </table>
     <p> Gdy będziesz gotów, kliknij ten przycisk:</p>
     <p><input value='Zrób to!' type='SUBMIT'></p>
-</from>
+</form>
 
 {% endblock %}
 
