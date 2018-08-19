@@ -27,4 +27,5 @@ if __name__ == "__main__":
     print(time.strftime("%H:%M"))
     print(time.strftime("%A %p"))
     print(html.escape("Ten fragment dokumentu HTML zawiera znacznik <script>skryptu</script>."))
+
     print(html.unescape("Kocham &lt;bibliotekę standardową&gt; Pythona."))
