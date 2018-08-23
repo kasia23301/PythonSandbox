@@ -19,9 +19,6 @@ def log_request(req: 'flask_request', res: str) -> None:
     cursor.close()
     conn.close()
 
-
-
-
 @app.route('/search4', methods=['POST'])
 def do_search() -> str:
     phrase = request.form['phrase']
