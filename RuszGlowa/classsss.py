@@ -13,3 +13,5 @@ if __name__=='__main__':
                Parking(13.918, 27.948, "Korona"),
                Parking(13.648, 25.918, "Pasaż"),
                Parking(17.378, 28.988, "Ferio")]
+
+    print("dupa dupa dupa")
