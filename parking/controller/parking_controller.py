@@ -30,20 +30,21 @@ def wczytywanie_danych():
     return jsonify(lista), 200
 
 
-@app.route('/parking', methods=['POST'])
+@app.route('/parking', methods=['POST'])    # obsługuje zadania POST - czyli takie które coś dodają np. nowy parking
 def wstawianie_danych():
-    id = request.id
-    name = request.name
-    attitude = request.attitude
-    longitude = request.longitude
-    free_spaces = request.free_spaces
-    capacity = request.capacity
-    rating = request.rating
-    _SQL = '''insert id, name, attitude, longitude, free_spaces, capacity, rating from parking'''
-    data = request.data
-    dataDict = json.loads(data)
-    print(dataDict)
-    return jsonify(dataDict), 200
+    data = request.data                 # request to zapytanie wysłane do serwera - jest w nim wiele rzeczy, ale nas insteresuje tylko data (czyli to co wysyłasz w postmanie jako body przy pomocy POST)
+    dataDict = json.loads(data)         # teraz zaminiamy json'a z requestu na słownik  
+    id = dataDict["id"]                 # pobranie wartości dla klucza "id" ze słownika 
+    return jsonify(dataDict), 200       # zwrócenie jsona (powstałego ze słownika po użyciu funkcji jsonify) i statusu 200 (oznancza on, że wszytsko poszło ok)
+#     id = request.id
+#     name = request.name
+#     attitude = request.attitude
+#     longitude = request.longitude
+#     free_spaces = request.free_spaces
+#     capacity = request.capacity
+#     rating = request.rating
+#     _SQL = '''insert id, name, attitude, longitude, free_spaces, capacity, rating from parking'''
+   
 
 
 if __name__ == "__main__":
