@@ -39,7 +39,7 @@ def wstawianie_danych():
     free_spaces = request.free_spaces
     capacity = request.capacity
     rating = request.rating
-    _SQL = '''insert id, name, attitude, longitude, free_spaces, capacity, rating from parking'''
+    _SQL = '''insert into Parking id, name, attitude, longitude, free_spaces, capacity, rating from parking'''
     data = request.data
     dataDict = json.loads(data)
     print(dataDict)
