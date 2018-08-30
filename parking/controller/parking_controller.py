@@ -30,20 +30,26 @@ def wczytywanie_danych():
     return jsonify(lista), 200
 
 
-@app.route('/parking', methods=['POST'])
+@app.route('/parking', methods=['POST'])  # obsługuje zadania POST - czyli takie które coś dodają np. nowy parking
 def wstawianie_danych():
-    id = request.id
-    name = request.name
-    attitude = request.attitude
-    longitude = request.longitude
-    free_spaces = request.free_spaces
-    capacity = request.capacity
-    rating = request.rating
-    _SQL = '''insert into Parking id, name, attitude, longitude, free_spaces, capacity, rating from parking'''
-    data = request.data
-    dataDict = json.loads(data)
-    print(dataDict)
-    return jsonify(dataDict), 200
+    data = request.data  # request to zapytanie wysłane do serwera - jest w nim wiele rzeczy, ale nas insteresuje tylko data (czyli to co wysyłasz w postmanie jako body przy pomocy POST)
+    dataDict = json.loads(data)  # teraz zaminiamy json'a z requestu na słownik
+    id = dataDict["id"]  # pobranie wartości dla klucza "id" ze słownika
+    name = dataDict["name"]
+    attitude = dataDict["attitude"]
+    longitude = dataDict["longitude"]
+    free_spaces = dataDict["free_spaces"]
+    capacity = dataDict["free_spaces"]
+    rating = dataDict["rating"]
+    dbconfig = {'host': '127.0.0.1',
+                'user': 'root',
+                'password': 'arogontaldo',
+                'database': 'parkingDB'}
+    conn = mysql.connector.connect(**dbconfig)
+    _SQL = '''INSERT INTO Parking VALUES(NULL, name, attitude, longitude, free_spaces, capacity, rating)'''
+    cursor = conn.cursor()
+    cursor.execute(_SQL)
+    return jsonify(dataDict), 200  # zwrócenie jsona (powstałego ze słownika po użyciu funkcji jsonify) i statusu 200 (oznancza on, że wszytsko poszło ok)
 
 
 if __name__ == "__main__":
