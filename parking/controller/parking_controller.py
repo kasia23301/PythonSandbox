@@ -46,7 +46,7 @@ def wstawianie_danych():
                 'password': 'arogontaldo',
                 'database': 'parkingDB'}
     conn = mysql.connector.connect(**dbconfig)
-    _SQL = '''INSERT INTO Parking VALUES(NULL, name, attitude, longitude, free_spaces, capacity, rating)'''
+    _SQL = '''INSERT INTO Parking VALUES(NULL, "Warszawia", 18.490, 27.765, 12, 130, 5)'''
     cursor = conn.cursor()
     cursor.execute(_SQL)
     return jsonify(dataDict), 200  # zwrócenie jsona (powstałego ze słownika po użyciu funkcji jsonify) i statusu 200 (oznancza on, że wszytsko poszło ok)
