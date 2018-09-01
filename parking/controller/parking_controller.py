@@ -52,5 +52,17 @@ def wstawianie_danych():
     return jsonify(dataDict), 200  # zwrócenie jsona (powstałego ze słownika po użyciu funkcji jsonify) i statusu 200 (oznancza on, że wszytsko poszło ok)
 
 
+@app.route('/parking')
+def usuwanie_danych():
+    dbconfig = {'host': '127.0.0.1',
+                'user': 'root',
+                'password': 'arogontaldo',
+                'database': 'parkingDB'}
+    conn = mysql.connector.connect(**dbconfig)
+    _SQL = '''DELETE FROM Parking WHERE id=2'''
+    cursor = conn.cursor()
+    cursor.execute(_SQL)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
