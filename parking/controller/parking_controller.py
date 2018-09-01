@@ -59,7 +59,7 @@ def usuwanie_danych():
                 'password': 'arogontaldo',
                 'database': 'parkingDB'}
     conn = mysql.connector.connect(**dbconfig)
-    _SQL = '''DELETE FROM Parking WHERE id=2'''
+    _SQL = '''DELETE FROM Parking WHERE id=2''' #"spieszmy się kochać rekordy, tak szybko odchodzą"
     cursor = conn.cursor()
     cursor.execute(_SQL)
 
