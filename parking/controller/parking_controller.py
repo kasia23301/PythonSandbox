@@ -47,13 +47,12 @@ def wstawianie_danych():
                 'database': 'parkingDB'}
     conn = mysql.connector.connect(**dbconfig)
     cursor = conn.cursor()
-    _SQL = '''insert into Parking(id,name,attitude,longitude,free_spaces,capacity,rating) 
-    values(%s,%s,%s,%s,%s,%s,%s)'''
+    _SQL = '''insert into Parking values('id','name','attitude','longitude','free_spaces','capacity','rating')'''
     conn.commit()
     cursor.execute(_SQL, ('NULL', 'Warszawia', '18.490', '27.765', '12', '130, 5'))
-    return jsonify(dataDict), 200  # zwrócenie jsona (powstałego ze słownika po użyciu funkcji jsonify) i statusu 200 (oznancza on, że wszytsko poszło ok)
     cursor.close()
     conn.close()
+    return jsonify(dataDict), 200  # zwrócenie jsona (powstałego ze słownika po użyciu funkcji jsonify) i statusu 200 (oznancza on, że wszytsko poszło ok)
 
 #@app.route('/parking')
 #def usuwanie_danych():
