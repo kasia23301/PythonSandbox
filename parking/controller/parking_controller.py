@@ -46,22 +46,25 @@ def wstawianie_danych():
                 'password': 'arogontaldo',
                 'database': 'parkingDB'}
     conn = mysql.connector.connect(**dbconfig)
-    _SQL = '''INSERT INTO Parking VALUES(NULL, "Warszawia", 18.490, 27.765, 12, 130, 5)'''
     cursor = conn.cursor()
-    cursor.execute(_SQL)
+    _SQL = '''insert into Parking(id,name,attitude,longitude,free_spaces,capacity,rating) 
+    values(%s,%s,%s,%s,%s,%s,%s)'''
+    conn.commit()
+    cursor.execute(_SQL, ('NULL', 'Warszawia', '18.490', '27.765', '12', '130, 5'))
     return jsonify(dataDict), 200  # zwrócenie jsona (powstałego ze słownika po użyciu funkcji jsonify) i statusu 200 (oznancza on, że wszytsko poszło ok)
+    cursor.close()
+    conn.close()
 
-
-@app.route('/parking')
-def usuwanie_danych():
-    dbconfig = {'host': '127.0.0.1',
-                'user': 'root',
-                'password': 'arogontaldo',
-                'database': 'parkingDB'}
-    conn = mysql.connector.connect(**dbconfig)
-    _SQL = '''DELETE FROM Parking WHERE id=2''' #"spieszmy się kochać rekordy, tak szybko odchodzą"
-    cursor = conn.cursor()
-    cursor.execute(_SQL)
+#@app.route('/parking')
+#def usuwanie_danych():
+    #dbconfig = {'host': '127.0.0.1',
+                #'user': 'root',
+                #'password': 'arogontaldo',
+                #'database': 'parkingDB'}
+    #conn = mysql.connector.connect(**dbconfig)
+    #_SQL = '''DELETE FROM Parking WHERE id=2'''
+    #cursor = conn.cursor()
+    #cursor.execute(_SQL)
 
 
 if __name__ == "__main__":
