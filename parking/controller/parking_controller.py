@@ -47,7 +47,7 @@ def wstawianie_danych():
                 'database': 'parkingDB'}
     conn = mysql.connector.connect(**dbconfig)
     cursor = conn.cursor()
-    _SQL = '''insert into Parking values('id','name','attitude','longitude','free_spaces','capacity','rating')'''
+    _SQL = '''insert into Parking values(%s,%s,%s,%s,%s,%s,%s)'''(id,name,attitude,longitude,free_spaces,capacity,rating)
     conn.commit()
     cursor.execute(_SQL, ('NULL', 'Warszawia', '18.490', '27.765', '12', '130, 5'))
     cursor.close()
