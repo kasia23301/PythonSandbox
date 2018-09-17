@@ -27,6 +27,7 @@ def wczytywanie_danych():
         slownik["rating"] = wiersz[6]
         lista.append(slownik)
     cursor.close()
+    conn.close()
     return jsonify(lista), 200
 
 
@@ -34,12 +35,11 @@ def wczytywanie_danych():
 def wstawianie_danych():
     data = request.data  # request to zapytanie wysłane do serwera - jest w nim wiele rzeczy, ale nas insteresuje tylko data (czyli to co wysyłasz w postmanie jako body przy pomocy POST)
     dataDict = json.loads(data)  # teraz zaminiamy json'a z requestu na słownik
-    id = dataDict["id"]  # pobranie wartości dla klucza "id" ze słownika
     name = dataDict["name"]
     attitude = dataDict["attitude"]
     longitude = dataDict["longitude"]
     free_spaces = dataDict["free_spaces"]
-    capacity = dataDict["free_spaces"]
+    capacity = dataDict["capacity"]
     rating = dataDict["rating"]
     dbconfig = {'host': '127.0.0.1',
                 'user': 'root',
@@ -47,23 +47,44 @@ def wstawianie_danych():
                 'database': 'parkingDB'}
     conn = mysql.connector.connect(**dbconfig)
     cursor = conn.cursor()
-    _SQL = '''insert into Parking values(%s,%s,%s,%s,%s,%s,%s)'''(id,name,attitude,longitude,free_spaces,capacity,rating)
+    _SQL = "insert into parking values(NULL,'" + str(name) + "'," + str(attitude) + "," + str(longitude) + "," + str(free_spaces) + "," + str(capacity) + "," + str(rating) + ")"
+    cursor.execute(_SQL)
     conn.commit()
-    cursor.execute(_SQL, ('NULL', 'Warszawia', '18.490', '27.765', '12', '130, 5'))
     cursor.close()
     conn.close()
-    return jsonify(dataDict), 200  # zwrócenie jsona (powstałego ze słownika po użyciu funkcji jsonify) i statusu 200 (oznancza on, że wszytsko poszło ok)
+    return jsonify(
+        dataDict), 200  # zwrócenie jsona (powstałego ze słownika po użyciu funkcji jsonify) i statusu 200 (oznancza on, że wszytsko poszło ok)
 
-#@app.route('/parking')
-#def usuwanie_danych():
-    #dbconfig = {'host': '127.0.0.1',
-                #'user': 'root',
-                #'password': 'arogontaldo',
-                #'database': 'parkingDB'}
-    #conn = mysql.connector.connect(**dbconfig)
-    #_SQL = '''DELETE FROM Parking WHERE id=2'''
-    #cursor = conn.cursor()
-    #cursor.execute(_SQL)
+
+@app.route('/parking/<id>', methods=['DELETE'])
+def usuwanie_parkingu(id):
+    dbconfig = {'host': '127.0.0.1',
+                'user': 'root',
+                'password': 'arogontaldo',
+                'database': 'parkingDB'}
+    conn = mysql.connector.connect(**dbconfig)
+    cursor = conn.cursor()
+    _SQL = "DELETE FROM Parking WHERE id=" + str(id)
+    cursor.execute(_SQL)
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return "", 200
+
+@app.route('/parking')
+def wyszukiwanie_po_nazwie(name):
+    dbconfig = {'host': '127.0.0.1',
+                'user': 'root',
+                'password': 'arogontaldo',
+                'database': 'parkingDB'}
+    conn = mysql.connector.connect(**dbconfig)
+    cursor = conn.cursor()
+    _SQL = "select*from Parking where name=" + str(name)
+    cursor.execute(_SQL)
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return "", 200
 
 
 if __name__ == "__main__":
