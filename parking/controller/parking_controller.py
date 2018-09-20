@@ -87,5 +87,21 @@ def wyszukiwanie_po_nazwie(name):
     return "", 200
 
 
+@app.route('/parking')
+def wyszukiwanie_po_id(id):
+    dbconfig = {'host': '127.0.0.1',
+                'user': 'root',
+                'password': 'arogontaldo',
+                'database': 'parkingDB'}
+    conn = mysql.connector.connect(**dbconfig)
+    cursor = conn.cursor()
+    _SQL = "select*from Parking where id=" + str(id)
+    cursor.execute(_SQL)
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return "", 200
+
+
 if __name__ == "__main__":
     app.run(debug=True)
