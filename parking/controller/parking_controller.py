@@ -102,6 +102,30 @@ def wyszukiwanie_po_id(id):
     conn.close()
     return "", 200
 
+@app.route('/parking')
+def updatowanie_danych_po_id(id):
+    data = request.data
+    dataDict = json.loads(data)
+    name = dataDict["name"]
+    attitude = dataDict["attitude"]
+    longitude = dataDict["longitude"]
+    free_spaces = dataDict["free_spaces"]
+    capacity = dataDict["capacity"]
+    rating = dataDict["rating"]
+    dbconfig = {'host': '127.0.0.1',
+                'user': 'root',
+                'password': 'arogontaldo',
+                'database': 'parkingDB'}
+    conn = mysql.connector.connect(**dbconfig)
+    cursor = conn.cursor()
+    _SQL = "update Parking set values(NULL,'" + str(name) + "'," + str(attitude) + "," + str(longitude) + "," + str(free_spaces) + "," + str(capacity) + "," + str(rating) + ")" + "where id=" + str(id)
+    cursor.execute(_SQL)
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return jsonify(dataDict), 200
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
