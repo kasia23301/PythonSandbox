@@ -102,7 +102,7 @@ def wyszukiwanie_po_id(id):
     conn.close()
     return "", 200
 
-@app.route('/parking')
+@app.route('/parking', methods=['POST'])
 def updatowanie_danych_po_id(id):
     data = request.data
     dataDict = json.loads(data)
@@ -124,7 +124,6 @@ def updatowanie_danych_po_id(id):
     cursor.close()
     conn.close()
     return jsonify(dataDict), 200
-
 
 
 if __name__ == "__main__":
