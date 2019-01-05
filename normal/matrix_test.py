@@ -51,7 +51,7 @@ class MyTestCase(unittest.TestCase):
         # when & then
         self.assertRaises(ValueError, multiply_matrix, matrix_1, matrix_2)
 
-    def test_should_return_value_error_becouse_second_empty_row_of_matrix(self):
+    def test_should_return_value_error_because_second_empty_row_of_matrix(self):
         # given
         matrix_1 = [[5, 7, 9],
                     []]

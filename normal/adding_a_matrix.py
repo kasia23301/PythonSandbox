@@ -26,18 +26,22 @@ def __validate_matrix_first_empty_row(matrix):
         raise ValueError("First empty row of matrix")
 
 
-def calculator(i, j):
-    result = []
-    summing = i + j
-    result.append(summing)
-    return result
+def sum_row_element(i, j):
+    return i + j
 
 
 def iteration_after_element_of_matrix(row_one, row):
+    result = []
+    for i in range(len(row_one)):
+        row_one[i]
+        row[i]
+    for elem1, elem2 in zip(row_one, row):
+        print(elem1, elem2)
     for i in row_one:
         for j in row:
-            result_one = calculator(i, j)
-    return result_one
+            result_summing = sum_row_element(i, j)
+            result.append(result_summing)
+    return result
 
 
 def get_cols_number(matrix):
