@@ -1,6 +1,16 @@
 from normal.matrix import *
 
 
+def __validate_sizes_of_columns(matrix_1, matrix_2):
+    if number_of_columns(matrix_1) != number_of_columns(matrix_2):
+        raise ValueError('Invalid sizes of matrices')
+
+
+def __validate_sizes_of_rows(matrix_1, matrix_2):
+    if number_of_rows(matrix_1) != number_of_rows(matrix_2):
+        raise ValueError('Invalid sizes of matrices')
+
+
 def __validate_sizes(matrix_1, matrix_2):
     if get_cols_number(matrix_1) != get_rows_number(matrix_2):
         raise ValueError('Invalid sizes of matrices')
@@ -33,3 +43,12 @@ def validate_matrices(matrix_1, matrix_2):
     __validate_sizes(matrix_1, matrix_2)
     __validate_matrix(matrix_1)
     __validate_matrix(matrix_2)
+
+
+def validate_of_adding_matrices(matrix_1, matrix_2):
+    __validate_sizes_of_columns(matrix_1, matrix_2)
+    __validate_sizes_of_rows(matrix_1, matrix_2)
+    __validate_if_matrix_empty(matrix_1)
+    __validate_if_matrix_empty(matrix_2)
+    __validate_matrix_first_empty_row(matrix_1)
+    __validate_matrix_first_empty_row(matrix_2)

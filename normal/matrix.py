@@ -20,6 +20,17 @@ def get_nth_col(matrix, n):
     return col
 
 
+def number_of_rows(matrix):
+    return len(matrix)
+
+
+def number_of_columns(matrix):
+    return len(matrix[0])
+
+
+
+
+
 
 
 
