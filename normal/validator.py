@@ -45,7 +45,7 @@ def validate_matrices(matrix_1, matrix_2):
     __validate_matrix(matrix_2)
 
 
-def validate_of_adding_matrices(matrix_1, matrix_2):
+def validate_matrices(matrix_1, matrix_2):
     __validate_sizes_of_columns(matrix_1, matrix_2)
     __validate_sizes_of_rows(matrix_1, matrix_2)
     __validate_if_matrix_empty(matrix_1)
