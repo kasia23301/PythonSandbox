@@ -1,5 +1,5 @@
 import unittest
-from normal.matrix_calc import multiply_matrix
+from normal.matrix_calc import multiply_matrices
 
 
 class MyTestCase(unittest.TestCase):
@@ -11,7 +11,7 @@ class MyTestCase(unittest.TestCase):
                     [-2, 0, 1],
                     [5, -3, 2]]
         # when
-        result_matrix = multiply_matrix(matrix_1, matrix_2)
+        result_matrix = multiply_matrices(matrix_1, matrix_2)
         # then
         expected_result_matrix = [[15, -3, 11],
                                   [-9, -3, 2]]
@@ -22,7 +22,7 @@ class MyTestCase(unittest.TestCase):
         matrix_1 = [[]]
         matrix_2 = [[]]
         # when & then
-        self.assertRaises(ValueError, multiply_matrix, matrix_1, matrix_2)
+        self.assertRaises(ValueError, multiply_matrices, matrix_1, matrix_2)
 
     def test_should_return_value_error_because_sizes_of_metrices_are_different(self):
         # given
@@ -31,7 +31,7 @@ class MyTestCase(unittest.TestCase):
         matrix_2 = [[7, 6, 2],
                     [9, 5, 2]]
         # when & then
-        self.assertRaises(ValueError, multiply_matrix, matrix_1, matrix_2)
+        self.assertRaises(ValueError, multiply_matrices, matrix_1, matrix_2)
 
     def test_should_return_value_error_becouse_one_of_matrices_is_empty(self):
         # given
@@ -39,7 +39,7 @@ class MyTestCase(unittest.TestCase):
                     [5, 2, 8]]
         matrix_2 = []
         # when & then
-        self.assertRaises(ValueError, multiply_matrix, matrix_1, matrix_2)
+        self.assertRaises(ValueError, multiply_matrices, matrix_1, matrix_2)
 
     def test_should_return_value_error_becouse_first_empty_row_of_matrix(self):
         # given
@@ -49,7 +49,7 @@ class MyTestCase(unittest.TestCase):
                     [9, 5, 2],
                     [2, 5, 7]]
         # when & then
-        self.assertRaises(ValueError, multiply_matrix, matrix_1, matrix_2)
+        self.assertRaises(ValueError, multiply_matrices, matrix_1, matrix_2)
 
     def test_should_return_value_error_because_second_empty_row_of_matrix(self):
         # given
@@ -59,7 +59,7 @@ class MyTestCase(unittest.TestCase):
                     [9, 5, 2],
                     [5, 8, 6]]
         # when & then
-        self.assertRaises(ValueError, multiply_matrix, matrix_1, matrix_2)
+        self.assertRaises(ValueError, multiply_matrices, matrix_1, matrix_2)
 
     def test_should_return_value_error_because_row_incompatibility(self):
         # given
@@ -71,7 +71,7 @@ class MyTestCase(unittest.TestCase):
                     [3, 6, 8]]
 
         # when & then
-        self.assertRaises(ValueError, multiply_matrix, matrix_1, matrix_2)
+        self.assertRaises(ValueError, multiply_matrices, matrix_1, matrix_2)
 
         # create test for matrix_1 = [] , matrix_2 = []
     def test_should_return_value_error_because_matrices_are_empty(self):
@@ -80,7 +80,7 @@ class MyTestCase(unittest.TestCase):
         matrix_2 = []
 
         # when & then
-        self.assertRaises(ValueError, multiply_matrix, matrix_1, matrix_2)
+        self.assertRaises(ValueError, multiply_matrices, matrix_1, matrix_2)
 
 
 if __name__ == '__main__':
