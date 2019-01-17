@@ -6,19 +6,19 @@ if __name__ == "__main__":
     dbconfig = {'host': '127.0.0.1',
                 'user': 'root',
                 'password': 'arogontaldo',
-                'database': 'Parking_finder'}
+                'database': 'parkingfinder'}
     conn = mysql.connector.connect(**dbconfig)
-    for i in r:
-        parkingName = r["parkingName"]
-        parkingAddress = r["parkingAddress"]
-        attitude = r["attitude"]
-        longitude = r["longitude"]
-        freeSpaces = r["freeSpaces"]
-        capacity = r["capacity"]
-        rating = r["rating"]
-        _SQL = "insert into parking values(NULL,'" + str(parkingName) + "'," + str(parkingAddress) + "," + str(
-            attitude) + "," + str(longitude) + "," + str(freeSpaces) + "," + str(capacity) + ","
-        str(rating) + ")"
+    for elem in r:
+        parkingName = elem["parkingName"]
+        parkingAddress = elem["parkingAddress"]
+        attitude = elem["attitude"]
+        longitude = elem["longitude"]
+        freeSpaces = elem["freeSpaces"]
+        capacity = elem["capacity"]
+        rating = elem["rating"]
+    _SQL = "insert into parking values(NULL,'" + str(parkingName) + "'," + str(parkingAddress) + "," + str(
+        attitude) + "," + str(longitude) + "," + str(freeSpaces) + "," + str(capacity) + ","
+    str(rating) + ")"
     cursor = conn.cursor()
     cursor.execute(_SQL)
     conn.commit()
