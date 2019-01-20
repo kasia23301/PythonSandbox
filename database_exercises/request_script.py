@@ -16,9 +16,9 @@ if __name__ == "__main__":
         freeSpaces = elem["freeSpaces"]
         capacity = elem["capacity"]
         rating = elem["rating"]
-    _SQL = "insert into parking values(NULL,'" + str(parkingName) + "'," + str(parkingAddress) + "," + str(
-        attitude) + "," + str(longitude) + "," + str(freeSpaces) + "," + str(capacity) + ","
-    str(rating) + ")"
-    cursor = conn.cursor()
-    cursor.execute(_SQL)
+        _SQL = "insert into parking values(NULL,'" + str(parkingName) + "'," + str(parkingAddress) + "," + str(
+            attitude) + "," + str(longitude) + "," + str(freeSpaces) + "," + str(capacity) + ","
+        str(rating) + ")"
+        cursor = conn.cursor()
+        cursor.execute(_SQL)
     conn.commit()
