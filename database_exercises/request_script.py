@@ -1,5 +1,4 @@
 import json
-
 import requests
 import mysql.connector
 
@@ -21,8 +20,8 @@ if __name__ == "__main__":
         distance = elem["distance"]
         freeSpaces = elem["freeSpaces"]
         dataVeracity = elem["dataVeracity"]
-        _SQL = "insert into parking values(NULL,'" + str(parkingName) + "'," + str(parkingAddress) + "," + str(
-            attitude) + "," + str(longitude) + "," + str(distance) + "," + str(freeSpaces) + ","
-        str(dataVeracity) + ")"
+        _SQL = "insert into parking values(NULL,'" + str(parkingName) + "','" + str(parkingAddress) + "'," + str(
+            attitude) + "," + str(longitude) + "," + str(distance) + "," + str(freeSpaces) + "," + str(
+            dataVeracity) + ")"
         cursor.execute(_SQL)
     conn.commit()

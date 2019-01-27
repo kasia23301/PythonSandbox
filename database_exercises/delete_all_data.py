@@ -9,4 +9,4 @@ if __name__ == "__main__":
     cursor = conn.cursor()
     Delete_all_query = """truncate table Parking"""
     cursor.execute(Delete_all_query)
-    dbconfig.commit()
+    conn.commit()
