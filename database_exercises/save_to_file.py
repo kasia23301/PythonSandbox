@@ -12,6 +12,7 @@ if __name__ == "__main__":
         "SELECT parkingName, parkingAddress, attitude, longitude, distance, freeSpaces, dataVeracity FROM Parking ")
     result_set = cursor.fetchall()
     for row in result_set:
-        print("%s, %s, %s, %s, %s, %s, %s" % (
-        row["parkingName"], row["parkingAddress"], row["attitude"], row["longitude"], row["distance"],
-        row["freeSpaces"], row["dataVeracity"]))
+        file = open('datafile.txt', 'a')
+        file.write("%s, %s, %s, %s, %s, %s, %s" % (
+            row["parkingName"], row["parkingAddress"], row["attitude"], row["longitude"], row["distance"],
+            row["freeSpaces"], row["dataVeracity"]))
