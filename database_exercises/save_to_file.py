@@ -16,4 +16,4 @@ if __name__ == "__main__":
         file.write("%s, %s, %s, %s, %s, %s, %s" % (
             row["parkingName"], row["parkingAddress"], row["attitude"], row["longitude"], row["distance"],
             row["freeSpaces"], row["dataVeracity"]))
-        file.close()
+    file.close()
