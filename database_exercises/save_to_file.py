@@ -11,9 +11,9 @@ if __name__ == "__main__":
     cursor.execute(
         "SELECT parkingName, parkingAddress, attitude, longitude, distance, freeSpaces, dataVeracity FROM Parking ")
     result_set = cursor.fetchall()
-    for row in result_set:
-        file = open('datafile.txt', 'a')
-        file.write("%s, %s, %s, %s, %s, %s, %s" % (
-            row["parkingName"], row["parkingAddress"], row["attitude"], row["longitude"], row["distance"],
-            row["freeSpaces"], row["dataVeracity"]))
-    file.close()
+    with open('datafile.txt', 'a') as file:
+        for row in result_set:
+            file.write("%s, %s, %s, %s, %s, %s, %s" % (
+                row["parkingName"], row["parkingAddress"], row["attitude"], row["longitude"], row["distance"],
+                row["freeSpaces"], row["dataVeracity"]))
+
