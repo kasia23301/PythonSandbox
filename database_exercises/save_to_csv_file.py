@@ -15,6 +15,4 @@ if __name__ == "__main__":
     with open("backup.csv", mode="w") as backup:
         backup_writer = csv.writer(backup, delimiter=',')
         for row in result_set:
-            backup_writer.writerow("%s, %s, %s, %s, %s, %s, %s\n" % (
-                row["parkingName"], row["parkingAddress"], row["attitude"], row["longitude"], row["distance"],
-                row["freeSpaces"], row["dataVeracity"]))
+            backup_writer.writerow([row["parkingName"], row["parkingAddress"], row["attitude"], row["longitude"], row["distance"],row["freeSpaces"], row["dataVeracity"]])
