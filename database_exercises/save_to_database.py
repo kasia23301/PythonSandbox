@@ -11,8 +11,10 @@ if __name__ == "__main__":
         conn = mysql.connector.connect(**dbconfig)
         cursor = conn.cursor()
         for row in csv_data:
-            sql = "Insert into Parking Values([row[0], row[1], row[2], row[3], row[4],row[5], row[6])"
-            cursor.execute()
-            conn.commit()
-            cursor.close()
+            sql = "Insert into Parking Values(%s, %s, %s, %s, %s, %s, %s, %s" (
+            row["parkingName"], row["parkingAddress"], row["attitude"], row["longitude"], row["distance"],
+            row["freeSpaces"], row["dataVeracity"])
+        cursor.execute()
+        conn.commit()
+        cursor.close()
 
