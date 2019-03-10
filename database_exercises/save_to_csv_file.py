@@ -12,7 +12,7 @@ if __name__ == "__main__":
     cursor.execute(
         "SELECT parkingName, parkingAddress, attitude, longitude, distance, freeSpaces, dataVeracity FROM Parking ")
     result_set = cursor.fetchall()
-    with open("backup.csv", mode="w") as backup:
+    with open("backup.csv", mode="w", newline='') as backup:
         backup_writer = csv.writer(backup, delimiter=',')
         for row in result_set:
             backup_writer.writerow([row["parkingName"], row["parkingAddress"], row["attitude"], row["longitude"], row["distance"],row["freeSpaces"], row["dataVeracity"]])
