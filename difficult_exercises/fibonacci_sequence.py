@@ -4,8 +4,8 @@ def fibonacci_sequence(n):
         fibonacci_len = len(fibonacci_numbers)
         if fibonacci_len < 2:
             fibonacci_numbers.append(1)
-            continue
-        fibonacci_numbers.append(fibonacci_numbers[fibonacci_len - 1] + fibonacci_numbers[fibonacci_len - 2])
+        else:
+            fibonacci_numbers.append(fibonacci_numbers[fibonacci_len - 1] + fibonacci_numbers[fibonacci_len - 2])
     return fibonacci_numbers
 
 
