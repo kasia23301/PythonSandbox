@@ -8,7 +8,10 @@ class ArrayList:
     def append(self, value):
         for elem in self.elems:
             if elem == None:
-                elem == value
+                for index, val in enumerate(self.elems):
+                    if val == None:
+                        value = self.elems[index]
+                        self.elems.append(value)
             else:
                 for i in range(len(self.elems)):
                     self.elems.append(None)
@@ -21,8 +24,6 @@ class ArrayList:
         for elem in self.elems:
             if elem is not None:
                 counter += 1
-            else:
-                pass
         return counter
 
 
