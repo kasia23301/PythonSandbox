@@ -5,11 +5,11 @@ class Dog:
 
     def _eq_(self, other):
         if self.age == other.age and self.name == other.name:
-            return False
+            return True
 
     def _ne_(self, other):
-        if self.age == other.age and self.name == other.name:
-            return True
+        if self.age != other.age and self.name != other.name:
+            return False
 
     def _hash_(self):
         return hash((self.age, self.name))
