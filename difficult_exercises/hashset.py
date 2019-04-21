@@ -3,25 +3,46 @@ class Dog:
         self.name = name
         self.age = age
 
-    def _eq_(self, other):
-        if self.age == other.age and self.name == other.name:
-            return True
-        if self.age != other.age and self.name != other.name:
-            return False
+    def __eq__(self, other):
+        return self.age == other.age and self.name == other.name
 
-    def _ne_(self, other):
-        if self.age == other.age and self.name == other.name:
-            return False
-        if self.age != other.age and self.name != other.name:
-            return True
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
-    def _hash_(self):
+    def __hash__(self):
         return hash((self.age, self.name))
+
+    def __str__(self):
+        return "name: " + s.name + " age: " + str(s.age)
+
+    def length_of_beard(self):
+        print('Dog')
+        return -1
+
+
+class Wyzel(Dog):
+    def length_of_beard(self):
+        print('Wyzel')
+        return 10
+
+
+class Sznaucer(Dog):
+    def length_of_beard(self):
+        print('Sznaucer')
+        return 30
 
 
 if __name__ == "__main__":
     s = Dog("scooby", 12)
     m = Dog("mis", 7)
     d = Dog("mis", 7)
+    e = Wyzel("wy", 8)
+    f = Sznaucer("sz", 9)
     dogs = set()
-    if _eq_(s, m) == False and _ne_(s, m) == True:
+    dogs.add(s)
+    dogs.add(m)
+    dogs.add(d)
+    dogs.add(e)
+    dogs.add(f)
+    for dog in dogs:
+        print(dog.length_of_beard())
