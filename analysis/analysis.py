@@ -50,12 +50,20 @@ def average_cholesterol_by_age(patients):
     average_chol_over_50 = sum([int(c) for c in chol_over_50]) / len(chol_over_50)
     return average_chol_below_50, average_chol_over_50
 
+
 def average_age_of_the_examined_persons(patients):
     age = []
     for patient in patients:
         age.append(patient.age)
     average_of_age = sum([int(c) for c in age]) / len(age)
     return average_of_age
+
+
+def group_by_age(patients):
+    dict = {}
+    for patient in patients:
+        dict = {patient.age: patient.chol}
+    for k, v in dict:
 
 
 class Patient:
