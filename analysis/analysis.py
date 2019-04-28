@@ -1,4 +1,5 @@
 import csv
+import matplotlib.pylab as plt
 
 
 def load_patients():
@@ -62,8 +63,23 @@ def average_age_of_the_examined_persons(patients):
 def group_by_age(patients):
     dict = {}
     for patient in patients:
-        dict = {patient.age: patient.chol}
-    for k, v in dict:
+        if patient.age in dict:
+            dict[patient.age].append(patient.chol)
+        else:
+            dict[patient.age] = [patient.chol]
+
+    avg_chol_dict = {}
+    for age, chols in dict.items():
+        new_val = sum([int(c) for c in chols]) / len(chols)
+        avg_chol_dict[age] = new_val
+
+    print(avg_chol_dict)
+    ages = sorted(avg_chol_dict.keys())
+
+    plt.bar(range(len(avg_chol_dict)), [avg_chol_dict[age] for age in ages], align='center')
+    plt.xticks(range(len(avg_chol_dict)), ages)
+    plt.show()
+
 
 
 class Patient:
@@ -95,3 +111,4 @@ if __name__ == "__main__":
         print("{:10.2f}".format(i))
     result3 = average_age_of_the_examined_persons(patients)
     print(result3)
+    group_by_age(patients)
