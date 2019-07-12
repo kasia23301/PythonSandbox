@@ -1,10 +1,8 @@
 def k(n):
-    wynik = 0
     if n < 4:
-        wynik = 1
-    if n >= 4:
-        wynik = k(n - 1) - k(n - 3)
-    return wynik
+        return 1
+    else:
+        return k(n - 1) - k(n - 3)
 
 
 if __name__ == "__main__":
@@ -14,7 +12,3 @@ if __name__ == "__main__":
         result = k(i)
         list.append(result)
     print(list)
-
-
-
-print("duuuuupaaaaaa")
