@@ -6,14 +6,19 @@ def a(ele):
 
 
 if __name__ == "__main__":
-    with open("liczby.txt", "r") as f:
-        list = []
-        for line in f:
-            list.append(line)
+    print(a(949))
+    f = open("liczby.txt", "r")
+    list = []
+    for line in f:
+        list.append(int(line))
+    for elem in list:
+        print(a(elem))
     result = []
     for elem in list:
         res = a(elem)
         result.append(res)
-    for el in result:
-        if el == "True":
-            print(el)
+    a = []
+    for i in result:
+        if str(i) == "True":
+            a.append(i)
+    print(len(a))
