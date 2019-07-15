@@ -12,3 +12,5 @@ if __name__ == "__main__":
         result = k(i)
         list.append(result)
     print(list)
+
+
