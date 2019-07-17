@@ -1,5 +1,5 @@
 def a(ele):
-    for n in range(0, 10):
+    for n in range(0, 11):
         if ele == 3 ** n:
             return True
     return False
@@ -21,4 +21,4 @@ if __name__ == "__main__":
     for i in result:
         if str(i) == "True":
             a.append(i)
-    print(len(a))
+    print("Wynik to: " + str(len(a)))
