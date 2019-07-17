@@ -1,14 +1,29 @@
-# def nwd_dwoch_liczb(liczba1, liczba2):
-
 def rozklad_na_czynniki(liczba):
-    for i in range(2, liczba + 1):
-        lista_dzielnikow = []
+    i = 2
+    lista_dzielnikow = []
+    for j in range(liczba):
         if liczba % i == 0:
             lista_dzielnikow.append(i)
-            liczba = liczba // i
-        if liczba == 1:
-            return lista_dzielnikow
+            liczba = liczba / i
+            if liczba == 1:
+                return lista_dzielnikow
+        else:
+            i += 1
+    return lista_dzielnikow
+
+
+def nwd(liczba1, liczba2):
+    l1 = rozklad_na_czynniki(liczba1)
+    l2 = rozklad_na_czynniki(liczba2)
+    l3 = []
+    for elem in l1:
+        if elem in l2:
+            l3.append(elem)
+    result = 1
+    for i in l3:
+        result = result * i
+    return result
 
 
 if __name__ == "__main__":
-    print(rozklad_na_czynniki(10))
+    print(nwd(12, 4))
