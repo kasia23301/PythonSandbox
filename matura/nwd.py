@@ -28,6 +28,7 @@ def nwd(liczba1, liczba2):
 if __name__ == "__main__":
     f = open("liczby.txt", "r")
     list = []
+    result = []
     b = []
     for line in f:
         list.append(int(line))
@@ -40,4 +41,5 @@ if __name__ == "__main__":
             for ele in list:
                 if a == nwd(a, list[i + 2]):
                     b.append(list[i + 2])
+                result.append(b)
     print(b)
