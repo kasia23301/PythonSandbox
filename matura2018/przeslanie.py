@@ -1,9 +1,5 @@
 def co_cztredzieste_slowo(list):
-    l = []
-    for elem in list[39: 1000: 40]:
-        l.append(elem)
-    return l
-
+    return list[39: 1000: 40]
 
 def co_dziesiata_litera(l):
     result = []
