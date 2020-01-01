@@ -14,3 +14,4 @@ if __name__ == "__main__":
         matrix.append(new_list)
     lista_elementow = []
 
+
