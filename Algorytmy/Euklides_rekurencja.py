@@ -5,4 +5,4 @@ def nwd(a, b):
 
 
 if __name__ == "__main__":
-    print(nwd(25, 8))
+    print(nwd(40, 8))

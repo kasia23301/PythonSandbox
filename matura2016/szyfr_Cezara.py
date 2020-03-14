@@ -1,11 +1,10 @@
-
 if __name__ == "__main__":
     f = open("dane_6_1.txt", "r")
     alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
-             "V",
-             "W", "X",
-             "Y", "Z"]
-    words=[]
+                "V",
+                "W", "X",
+                "Y", "Z"]
+    words = []
     end_list = []
     for line in f:
         words.append(line.rstrip("\n"))
@@ -20,7 +19,6 @@ if __name__ == "__main__":
         end_list.append(encrypted_word)
 
     print(end_list)
-
 
     end_list = []
     for word in words:
