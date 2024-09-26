@@ -18,29 +18,3 @@ def get_nth_col(matrix, n):
     for row in matrix:
         col.append(row[n])
     return col
-
-
-
-
-
-    # for i in range()
-    #     a = matrix_1[0]
-    # if len(a) == len(matrix_2):
-    #     a = matrix_1[0]
-    #     c = matrix_2[0]
-    #     d = matrix_1[1]
-    #     new_matrix = []
-    #     i = 0
-    #     b = matrix_2[i]
-    #     f = b[0]
-    #     for e in range(len(a) * len(c)):
-    #         for number in a:
-    #             result = number * f
-    #             new_matrix.append(result)
-    #             i += 1
-    #         a = d
-    #         f = b[1]
-    # else:
-    #     return ArithmeticError("Nieprawidłowe dane")
-    #
-    # return sum(new_matrix)

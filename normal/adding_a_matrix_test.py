@@ -1,5 +1,5 @@
 import unittest
-from normal.adding_a_matrix import adding_a_matrix
+from normal.adding_a_matrix import add_matrices
 
 
 class MyTestCase(unittest.TestCase):
@@ -10,7 +10,7 @@ class MyTestCase(unittest.TestCase):
         matrix_2 = [[1, 3, 2],
                     [2, 0, 1]]
         # when
-        result_matrix = adding_a_matrix(matrix_1, matrix_2)
+        result_matrix = add_matrices(matrix_1, matrix_2)
         # then
         expected_result_matrix = [[3, 4, 5],
                                   [10, 4, 1]]
@@ -21,7 +21,7 @@ class MyTestCase(unittest.TestCase):
         matrix_1 = [[]]
         matrix_2 = [[]]
         # when & then
-        self.assertRaises(ValueError, adding_a_matrix, matrix_1, matrix_2)
+        self.assertRaises(ValueError, add_matrices, matrix_1, matrix_2)
 
     def test_should_return_value_error_because_sizes_of_metrices_are_different(self):
         # given
@@ -31,7 +31,7 @@ class MyTestCase(unittest.TestCase):
         matrix_2 = [[7, 6, 2],
                     [9, 5, 2]]
         # when & then
-        self.assertRaises(ValueError, adding_a_matrix, matrix_1, matrix_2)
+        self.assertRaises(ValueError, add_matrices, matrix_1, matrix_2)
 
     def test_should_return_value_error_because_one_of_matrices_is_empty(self):
         # given
@@ -39,7 +39,7 @@ class MyTestCase(unittest.TestCase):
                     [5, 2, 8]]
         matrix_2 = []
         # when & then
-        self.assertRaises(ValueError, adding_a_matrix, matrix_1, matrix_2)
+        self.assertRaises(ValueError, add_matrices, matrix_1, matrix_2)
 
     def test_should_return_value_error_because_first_empty_row_of_matrix(self):
         # given
@@ -49,14 +49,14 @@ class MyTestCase(unittest.TestCase):
                     [9, 5, 2],
                     [2, 5, 7]]
         # when & then
-        self.assertRaises(ValueError, adding_a_matrix, matrix_1, matrix_2)
+        self.assertRaises(ValueError, add_matrices, matrix_1, matrix_2)
 
     def test_should_return_value_error_because_matrices_are_empty(self):
         # given
         matrix_1 = []
         matrix_2 = []
         # when & then
-        self.assertRaises(ValueError, adding_a_matrix, matrix_1, matrix_2)
+        self.assertRaises(ValueError, add_matrices, matrix_1, matrix_2)
 
 
 if __name__ == '__main__':
